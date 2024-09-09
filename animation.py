@@ -8,7 +8,7 @@ from fiskeflok import Flok
 def main():
     fisklst = []
     for _ in range(2):
-        fisklst.append(Fisk(Vector(randint(0,800-255),randint(0,600-128)),Vector(randint(2,5),randint(2,5)),"fisk.jpg"))
+        fisklst.append(Fisk(Vector(randint(0,800-255),randint(0,600-128)),Vector(2,2),"fisk.jpg"))
     pygame.init()
     flok = Flok(fisklst)
     clock = pygame.time.Clock()
