@@ -15,18 +15,19 @@ class Fisk:
     def move(self):
         self.__position = self.__position + self.__velocity
 
-    def changeVeloho(self):
-        self.__velocity = Vector(self.__velocity.getx() * -1, self.__velocity.gety())
+    def changeVelova(self):
+        self.__velocity = Vector(self.__velocity.getx() + (1 - (self.__position.getx() / self.d)), self.__velocity.gety())
 
     def changeVelolo(self):
-        self.__velocity = Vector(self.__velocity.getx(), self.__velocity.gety() * -1)
+        self.__velocity = Vector(self.__velocity.getx(), self.__velocity.gety() + (1 - (self.__position.gety() / self.d)))
 
     
     def bordercheck(self):
-        if self.__position.getx() <= 0 or self.__position.getx() >= 800-255:
-            self.changeVeloho()
+        self.d = 100
+        if self.__position.getx() <= self.d or self.__position.getx() >= 800-255-100:
+            self.changeVelova()
  
-        if self.__position.gety() <= 0 or self.__position.gety() >= 600-128:
+        if self.__position.gety() <= self.d or self.__position.gety() >= 600-128-100:
             self.changeVelolo()
     
     
