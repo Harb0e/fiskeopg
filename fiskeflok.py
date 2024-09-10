@@ -11,5 +11,4 @@ class Flok:
         screen.fill((0, 128, 255))
         for fisk in self.__fiskarr:
             fisk.update()
-            print(fisk.getvelo())
         pygame.display.flip()
