@@ -6,9 +6,9 @@ from fiskeflok import Flok
 
 
 def main():
-    screen = pygame.display.set_mode((800, 600))
+    screen = pygame.display.set_mode((1600, 800))
     fisklst = []
-    for _ in range(4):
+    for _ in range(2):
         fisklst.append(Fisk(Vector(randint(0,800-240),randint(0,600-128)),Vector(2,2),"fisk.jpg",screen))
     pygame.init()
     flok = Flok(fisklst)

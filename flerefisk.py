@@ -1,8 +1,9 @@
 from Vectoropg import Vector
+import numpy as np
 import pygame
 
 class Fisk:
-    def __init__(self, position, velocity,imglink,screen,sight=100) -> None:
+    def __init__(self, position, velocity,imglink,screen,sight=300) -> None:
         self.__sight = sight
         self.__scale = 50
         self.__img = pygame.transform.scale(pygame.image.load(imglink), (self.__scale,self.__scale))
@@ -11,10 +12,11 @@ class Fisk:
         self.__screen = screen
 
 
-    def update(self):
+    def update(self,flok):
         self.draw()
         self.move()
         self.bordercheck()
+        self.seperation(flok,50,0.5)
     
     def draw(self):
         self.__screen.blit(self.__img, (self.__position.getx(), self.__position.gety()))
@@ -40,6 +42,25 @@ class Fisk:
         self.d = 100
         self.changeVelova()
         self.changeVelolo()
+    
+    
+    def seperation(self,flok,tooClose,separation_factor):
+        separation_vector = Vector(0,0)
+        for fisk in flok.getFlok():
+            if fisk != self:
+                afstand = self.__position.getDistance(fisk.get_pos())
+                if afstand <= tooClose:
+                    separation_vector += (self.__position - fisk.get_pos()) / afstand
+        return(separation_vector * separation_factor)
+
+                    
+                    
+
+    def get_pos(self):
+        return self.__position
+
+                
+        
     
 
   

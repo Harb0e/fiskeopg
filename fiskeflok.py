@@ -10,5 +10,10 @@ class Flok:
     def update(self,screen):
         screen.fill((0, 128, 255))
         for fisk in self.__fiskarr:
-            fisk.update()
+            fisk.update(self)
         pygame.display.flip()
+
+    def getFlok(self):
+        return self.__fiskarr
+    
+    
