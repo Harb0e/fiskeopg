@@ -5,11 +5,14 @@ from flerefisk import Fisk
 from fiskeflok import Flok
 
 
+
+
+
 def main():
     screen = pygame.display.set_mode((1600, 800))
     fisklst = []
-    for _ in range(2):
-        fisklst.append(Fisk(Vector(randint(0,800-240),randint(0,600-128)),Vector(2,2),"fisk.jpg",screen))
+    for _ in range(20):
+        fisklst.append(Fisk(Vector(randint(0,800-240),randint(0,600-128)),Vector(randint(-5,5),randint(-5,5)),"fisk.jpg",screen))
     pygame.init()
     flok = Flok(fisklst)
     clock = pygame.time.Clock()
